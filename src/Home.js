@@ -1,36 +1,42 @@
 import React, { useState } from 'react'
 
 const Home = ({homeplayers,setHomePlayers,homescore,setHomeScore}) => {
-    const [playerscore,setPlayerScore]=useState(0)
+  
   return (
-    <div>
-        <article>
-            
+    <>
+        <section>
+           
             {homeplayers.map((players)=>{
                 const {name,image,id} =players
-               
+                let playerScore = 0
                 const handleClick1=()=>{
                     setHomeScore(homescore+1)
-                    setPlayerScore(playerscore+1)
+                     playerScore+=1
+                     return playerScore
                 }
+                
                  const handleClick2=()=>{
                     setHomeScore(homescore+2)
-                    setPlayerScore(playerscore+2)
+                
                 }
                 return<>
+                <article>
                 <div key={id} className='playerCard'>
                 <img src={image} alt={name} />
                  <button className="btn" onClick={handleClick1}>+1</button>
                  <button className="btn"onClick={handleClick2}>+2</button>
-                 <h4>score:{playerscore}</h4>
+                 
                 </div>
+                <h4>score:{playerScore}</h4>
+                </article>
+                
                 
                  </>
                  
                
             })}
-        </article>
-    </div>
+        </section>
+    </>
   )
 }
 
