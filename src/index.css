@@ -4,16 +4,19 @@
   box-sizing: border-box;
 }
 
+/* font-sizes */
+/* (10,12,14,16,18,20,24,30,36,44,52,62,74,86,96) */
+
 html{
   font-size: 62.5%;
 }
 
 body{
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
+  color:#f1f3f5;
 }
 h1{
-  font-size:20rem;
- 
+  font-size:1.6rem;
 }
 button{
   width:5rem;
@@ -70,6 +73,11 @@ button{
    color:#fff;
   border:1rem solid #fff;
 }
+.scoreCard h1{
+  font-size: 20rem;
+}
+
+
 .scoreCard h2{
    font-size:3rem;
 }
@@ -108,38 +116,85 @@ button{
 }
 
 /* Home Component */
+.playerStats h3,h1,img{
+ margin-bottom: .5rem;;
+}
+
+
+
+
+
+.homeTitle{
+  margin-left:2rem;
+  color:#fff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width:86rem;
+  text-align: center;
+  background-color: #212529;
+}
+.homeTitle h1{
+  font-size :3.2rem;
+  font-weight:900;
+}
+
 .card{
-  width:94.5rem;
-  height:20rem;
-  padding:1rem 2rem;
-  display:flex;
+  max-width:86rem;
+  height:104rem;
+  padding:2rem 2rem;
+  display:grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns:repeat(4,1fr);
+  margin-left: 2rem;;
+  gap:.5rem;
+
+ 
   background-color:#343a40;
   
 }
+
+
 .homeplayercard{
   width:20rem;
-  height:5rem;
- 
-}
-.playerCard{
-  padding:1rem 3rem;
+  height:32rem;
+  padding:2rem 2rem;
+  background-color: #c92a2a;
+  border:2px solid black;
+  border-radius: 9px;;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 
-.playerCard img{
+.personalCard img{
   width:5rem;
   height:5rem;
-  border-radius:9px;
+  border-radius:50%;
   
 } 
 .personalCard{
   display:flex;
-  gap:1rem;
+  gap:1.5rem;
   color:#fff;
  
 }
 
-.playerCard button{
+/* Stats Button */
+.stats{
+  width:90vw;
+  margin:0 auto;
+  display:flex;
+  text-align: center;
+}
+.btn-div{
+  display:flex;
+
+}
+.btn-div h2{
+  margin: .5rem 0;;
+}
+
+.btn-div button{
   width:4rem;
   height:3rem;
   font-size:1rem;
@@ -147,11 +202,13 @@ button{
   background-color: #212529;
   color:#C8DAEB;
   text-transform: uppercase;
-  padding:.5rem .5rem;
+  /* padding:.5rem .5rem; */
   cursor: pointer;
   border:.5rem solid #fff;
-}
-.btn-div{
-  margin-top:1rem;
+  border-radius: 9px;;
+  margin-right: .5rem;;
 }
 
+.name{
+  color:#FFF5F5;
+}

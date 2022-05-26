@@ -1,281 +1,92 @@
 import { useState } from "react";
 
-const HomePlayerOne = ({ name, id, image, homescore, setHomeScore }) => {
-  const [pts, setPts] = useState(0);
-  const [reb, setReb] = useState(0);
-  const [ast, setAssist] = useState(0);
-  const [stl, setStl] = useState(0);
-  const [blk, setBlk] = useState(0);
-  const handleClick1 = () => {
-    setHomeScore(homescore + 1);
-    setPts(pts + 1);
-  };
-  const handleClick2 = () => {
-    setHomeScore(homescore + 2);
-    setPts(pts + 2);
-  };
-  const reboundClick = () => {
-    setReb(reb + 1);
-  };
-  const assistClick = () => {
-    setAssist(ast + 1);
-  };
-  const stlClick = () => {
-    setStl(stl + 1);
-  };
-  const blkClick = () => {
-    setBlk(blk + 1);
-  };
-  if (id === 1) {
-    return (
-      <>
-        <article className='homeplayercard'>
-          <div className='playerCard'>
-            <div className='personalCard'>
+const HomePlayerOne = ({
+  number,
+  pts,
+  reb,
+  ast,
+  stl,
+  blk,
+  name,
+  id,
+  image,
+  homescore,
+  setHomeScore,
+  player,
+  handleClick,
+  handleClick1,
+}) => {
+  return (
+    <>
+      <article className='homeplayercard'>
+        <div className='personalCard'>
+          <div className='playerStats'>
+            <img src={image} alt={name} />
+            <h1 className='name'>
+              <u>{name}</u>
+            </h1>
+            <h1 className='name'>
+              <u>#{number}</u>
+            </h1>
+            <h1>Pts: {pts}</h1>
+            <h1>Reb: {reb}</h1>
+            <h1>Ast: {ast}</h1>
+            <h1>Stl: {stl}</h1>
+            <h1>Blk: {blk}</h1>
+          </div>
+          <div className='btn-div'>
+            <div>
+              <h2>Points</h2>
               <div>
-                <img src={image} alt={name} />
-                <h2>{name}</h2>
-                <h2>#13</h2>
-              </div>
-
-              <div>
-                <h2>Points:{pts}</h2>
-                <h2>Reb:{reb}</h2>
-                <h2>Ast:{ast}</h2>
-                <h2>Stl:{stl}</h2>
-
-                <h2>Blk:{blk}</h2>
-              </div>
-            </div>
-
-            <div className='btn-div'>
-              <div>
-                <button className='btn' onClick={handleClick1}>
+                <button className='btn' onClick={handleClick("pts")}>
                   +1
                 </button>
-                <button className='btn' onClick={handleClick2}>
-                  +2
-                </button>
-                <button className='btn' onClick={reboundClick}>
-                  Reb
+                <button className='btn' onClick={handleClick1("pts")}>
+                  -1
                 </button>
               </div>
               <div>
-                <button className='btn' onClick={assistClick}>
-                  Ast
+                <h2>Rebound</h2>
+                <button className='btn' onClick={handleClick("reb")}>
+                  +1
                 </button>
-                <button className='btn' onClick={stlClick}>
-                  Stl
+                <button className='btn' onClick={handleClick1("reb")}>
+                  -1
                 </button>
-                <button className='btn' onClick={blkClick}>
-                  BLk
+              </div>
+              <div>
+                <h2>Assist</h2>
+                <button className='btn' onClick={handleClick("ast")}>
+                  +1
+                </button>
+                <button className='btn' onClick={handleClick1("ast")}>
+                  -1
+                </button>
+              </div>
+              <div>
+                <h2>Steal</h2>
+                <button className='btn' onClick={handleClick("stl")}>
+                  +1
+                </button>
+                <button className='btn' onClick={handleClick1("stl")}>
+                  -1
+                </button>
+              </div>
+              <div>
+                <h2>Block</h2>
+                <button className='btn' onClick={handleClick("blk")}>
+                  +1
+                </button>
+                <button className='btn' onClick={handleClick1("blk")}>
+                  -1
                 </button>
               </div>
             </div>
           </div>
-        </article>
-        <article></article>
-      </>
-    );
-  }
-  if (id === 2) {
-    return (
-      <>
-        <article className='homeplayercard'>
-          <div className='playerCard'>
-            <div className='personalCard'>
-              <div>
-                <img src={image} alt={name} />
-                <h2>{name}</h2>
-              </div>
-
-              <div>
-                <h2>Points:{pts}</h2>
-                <h2>Reb:{reb}</h2>
-                <h2>Ast:{ast}</h2>
-                <h2>Stl:{stl}</h2>
-                <h2>Blk:{blk}</h2>
-              </div>
-            </div>
-
-            <div className='btn-div'>
-              <div>
-                <button className='btn' onClick={handleClick1}>
-                  +1
-                </button>
-                <button className='btn' onClick={handleClick2}>
-                  +2
-                </button>
-                <button className='btn' onClick={reboundClick}>
-                  Reb
-                </button>
-              </div>
-              <div>
-                <button className='btn' onClick={assistClick}>
-                  Ast
-                </button>
-                <button className='btn' onClick={stlClick}>
-                  Stl
-                </button>
-                <button className='btn' onClick={blkClick}>
-                  BLk
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </>
-    );
-  }
-  if (id === 3) {
-    return (
-      <>
-        <article className='homeplayercard'>
-          <div className='playerCard'>
-            <div className='personalCard'>
-              <div>
-                <img src={image} alt={name} />
-                <h2>{name}</h2>
-              </div>
-
-              <div>
-                <h2>Points:{pts}</h2>
-                <h2>Reb:{reb}</h2>
-                <h2>Ast:{ast}</h2>
-                <h2>Stl:{stl}</h2>
-                <h2>Blk:{blk}</h2>
-              </div>
-            </div>
-
-            <div className='btn-div'>
-              <div>
-                <button className='btn' onClick={handleClick1}>
-                  +1
-                </button>
-                <button className='btn' onClick={handleClick2}>
-                  +2
-                </button>
-                <button className='btn' onClick={reboundClick}>
-                  Reb
-                </button>
-              </div>
-              <div>
-                <button className='btn' onClick={assistClick}>
-                  Ast
-                </button>
-                <button className='btn' onClick={assistClick}>
-                  Stl
-                </button>
-                <button className='btn' onClick={assistClick}>
-                  BLk
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </>
-    );
-  }
-  if (id === 4) {
-    return (
-      <>
-        <article className='homeplayercard'>
-          <div className='playerCard'>
-            <div className='personalCard'>
-              <div>
-                <img src={image} alt={name} />
-                <h2>{name}</h2>
-              </div>
-
-              <div>
-                <h2>Points:{pts}</h2>
-                <h2>Reb:{reb}</h2>
-                <h2>Ast:{ast}</h2>
-                <h2>Stl:{stl}</h2>
-
-                <h2>Blk:{blk}</h2>
-              </div>
-            </div>
-
-            <div className='btn-div'>
-              <div>
-                <button className='btn' onClick={handleClick1}>
-                  +1
-                </button>
-                <button className='btn' onClick={handleClick2}>
-                  +2
-                </button>
-                <button className='btn' onClick={reboundClick}>
-                  Reb
-                </button>
-              </div>
-              <div>
-                <button className='btn' onClick={assistClick}>
-                  Ast
-                </button>
-                <button className='btn' onClick={assistClick}>
-                  Stl
-                </button>
-                <button className='btn' onClick={assistClick}>
-                  BLk
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </>
-    );
-  }
-  if (id === 5) {
-    return (
-      <>
-        <article className='homeplayercard'>
-          <div className='playerCard'>
-            <div className='personalCard'>
-              <div>
-                <img src={image} alt={name} />
-                <h2>{name}</h2>
-              </div>
-
-              <div>
-                <h2>Points:{pts}</h2>
-                <h2>Reb:{reb}</h2>
-                <h2>Ast:{ast}</h2>
-                <h2>Stl:{stl}</h2>
-
-                <h2>Blk:{blk}</h2>
-              </div>
-            </div>
-
-            <div className='btn-div'>
-              <div>
-                <button className='btn' onClick={handleClick1}>
-                  +1
-                </button>
-                <button className='btn' onClick={handleClick2}>
-                  +2
-                </button>
-                <button className='btn' onClick={reboundClick}>
-                  Reb
-                </button>
-              </div>
-              <div>
-                <button className='btn' onClick={assistClick}>
-                  Ast
-                </button>
-                <button className='btn' onClick={assistClick}>
-                  Stl
-                </button>
-                <button className='btn' onClick={assistClick}>
-                  BLk
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </>
-    );
-  }
+        </div>
+      </article>
+    </>
+  );
 };
 
 export default HomePlayerOne;
